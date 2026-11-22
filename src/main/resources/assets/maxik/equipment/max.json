@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "maxik:max"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "maxik:max"
+      }
+    ]
+  }
+}

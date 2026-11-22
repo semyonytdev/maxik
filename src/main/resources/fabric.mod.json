@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "id": "maxik",
+  "version": "${version}",
+  "name": "Maxik (Макс-предметы)",
+  "description": "Макс-броня, макс-инструменты, макс-тотем и макс-кристалл Края.",
+  "authors": ["Семён Гридин"],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": { "main": ["com.maxik.MaxikMod"] },
+  "depends": { "fabricloader": ">=0.18.1", "minecraft": "~1.21.11", "java": ">=21", "fabric-api": "*" }
+}
