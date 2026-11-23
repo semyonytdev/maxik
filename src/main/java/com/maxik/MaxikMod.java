@@ -152,8 +152,16 @@ public class MaxikMod implements ModInitializer {
 					&& MAX_TOOLS.contains(player.getMainHandItem().getItem())) {
 				BlockState state = level.getBlockState(pos);
 				if (!state.isAir()) {
-					Block.dropResources(state, serverLevel, pos, serverLevel.getBlockEntity(pos), player,
-							player.getMainHandItem());
+					if (state.getDestroySpeed(level, pos) < 0.0F) {
+						// Неразрушаемые блоки (бедрок, барьер и т. п.) выпадают сами
+						ItemStack drop = new ItemStack(state.getBlock());
+						if (!drop.isEmpty()) {
+							Block.popResource(serverLevel, pos, drop);
+						}
+					} else {
+						Block.dropResources(state, serverLevel, pos, serverLevel.getBlockEntity(pos), player,
+								player.getMainHandItem());
+					}
 					serverLevel.destroyBlock(pos, false, player);
 					return InteractionResult.SUCCESS;
 				}
